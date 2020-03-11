@@ -1,0 +1,37 @@
+{
+  "name": "salt-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "restart": "NODE_ENV=development nodemon routes.js",
+    "lint": "eslint *.js **/*.js",
+    "pretest": "npm run lint",
+    "test": "jest --config jest.config.json --silent"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "combined-stream": "^1.0.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.3",
+    "fetch": "^1.1.0",
+    "navigator": "^1.0.1",
+    "node-fetch": "^2.6.0",
+    "unirest": "^0.6.0",
+    "uuid": "^3.2.1"
+  }
+}
