@@ -11,10 +11,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/api/:serie', async (req, res) => {
+    const serie = req.params.serie;
+    console.log(serie);
+    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=1&apikey=6a54815b`);
+    const serieData = await fetchData.json();
+    console.log(serieData);
+    res.json(serieData);
+})
 
 const port = 3000
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
         
+
 
 
 
