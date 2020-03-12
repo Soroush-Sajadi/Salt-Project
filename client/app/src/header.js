@@ -21,8 +21,8 @@ export default class serie extends Component {
                     <NavLink to="Series">Series</NavLink>
                   </li>
                 </ul>
-                </nav>
-              </header>
+                </nav>   
+            </header>
         )
     }
 }

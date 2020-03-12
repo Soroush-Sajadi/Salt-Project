@@ -62,7 +62,15 @@ export default class serie extends Component {
                     <input className="input-season" type="text" placeholder="season" onChange={ this.handleChangeSeason } />
                     <input className="button-season" type="button" value="Search" onClick={this.handleClickSeason} />
                     <h3>{`Episodes: ${this.state.data.Episodes.length + 1}`}</h3>
-        {this.state.data.Episodes.map((item, index) => <div key={index} className="episodes"><div className="text"><p>{item.Title}</p>  <p>Released: {item.Released}</p> <p>Episode: {item.Episode}</p></div> <div><img className="img" src={this.state.pic.Poster}/></div> </div>)}
+                {this.state.data.Episodes.map((item, index) => 
+                <div key={index} className="episodes"> 
+                  <div><img className="img" src={this.state.pic.Poster}/></div>
+                  <div className="text">
+                    <p>{item.Title}</p>  
+                    <p>Released: {item.Released}</p> 
+                    <p>Episode: {item.Episode}</p>
+                    </div> 
+                </div>)}
                 </div>  ) : null} 
             </div>
         )
