@@ -21,6 +21,7 @@ app.get('/api/:serie/:season', async (req, res) => {
     const serieData = await fetchData.json();
     res.json(serieData);
 })
+
 app.get('/api/pic/:serie/:season', async (req, res) => {
     let serie = req.params.serie;
     const season = req.params.season;
@@ -30,6 +31,17 @@ app.get('/api/pic/:serie/:season', async (req, res) => {
     const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&Episode=1&apikey=6a54815b`);
     const seriePic = await fetchData.json();
     res.json(seriePic);
+})
+
+app.get('/api/:movie', async (req, res) => {
+    let movie = req.params.movie;
+    console.log(movie);
+    if (/\s/.test(movie)) {
+        movie = movie.replace(/\s/g, '%20');
+    }
+    const fetchData = await fetch(`http://www.omdbapi.com/?s=${movie}&page=1&apikey=6a54815b`);
+    const movieData = await fetchData.json();
+    res.json(movieData);
 })
 
 const port = 3000

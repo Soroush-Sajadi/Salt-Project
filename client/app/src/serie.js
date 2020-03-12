@@ -20,6 +20,7 @@ export default class serie extends Component {
 
       handleChange(e) {
         this.setState({ input: e.target.value });
+        console.log(this.input)
       }
     
       async handleClick() {
@@ -27,9 +28,7 @@ export default class serie extends Component {
               'Access-Control-Allow-Origin': '*'
             }})
               .then(response => response.json())
-              .then(data => {
-                console.log('TRYING TO SET STATE')
-                this.setState({data})
+              .then(data => { this.setState( { data } )
               });
             await fetch(`http://localhost:3000/api/pic/${this.state.input}/1`, {headers: {
               'Access-Control-Allow-Origin': '*'
@@ -51,7 +50,7 @@ export default class serie extends Component {
               .then(pic => this.setState({ pic }));
       }
       
-    render() {
+      render() {
         return (  
             <div className="wrap">
                 <input className="input" type="text" placeholder="What is your favorite Serie" onChange={ this.handleChange } />
