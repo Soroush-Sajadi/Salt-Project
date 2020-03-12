@@ -55,22 +55,24 @@ export default class serie extends Component {
             <div className="wrap">
                 <input className="input" type="text" placeholder="What is your favorite Serie" onChange={ this.handleChange } />
                 <input className="button" type="button" value="Search" onClick={this.handleClick} />
-                {this.state.data.length !== 0 ? (<div className="Serie-info"> 
-                    <h1>{`Name: ${this.state.data.Title}`}</h1>
+                {this.state.data.length !== 0 ? (<div className="Serie-title">
+                    <h1>{this.state.data.Title}</h1>
                     <h2>{`Total Season: ${this.state.data.totalSeasons}`}</h2>
                     <h2>{`Season: ${this.state.data.Season}`}</h2>
                     <input className="input-season" type="text" placeholder="season" onChange={ this.handleChangeSeason } />
                     <input className="button-season" type="button" value="Search" onClick={this.handleClickSeason} />
                     <h3>{`Episodes: ${this.state.data.Episodes.length + 1}`}</h3>
+                <div className="Serie-info">    
                 {this.state.data.Episodes.map((item, index) => 
                 <div key={index} className="episodes"> 
                   <div><img className="img" src={this.state.pic.Poster}/></div>
                   <div className="text">
-                    <p>{item.Title}</p>  
-                    <p>Released: {item.Released}</p> 
-                    <p>Episode: {item.Episode}</p>
+                    <p className="title">{item.Title}</p>  
+                    <p className="p">Released: {item.Released}</p> 
+                    <p className="p">Episode: {item.Episode}</p>
                     </div> 
                 </div>)}
+                </div>
                 </div>  ) : null} 
             </div>
         )

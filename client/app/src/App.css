@@ -1,10 +1,9 @@
-body {
-    height: 1023px;
+.wrap {
+  text-align: center;
+  padding: 120px 20% 60px;
     
-  }
-  .wrap {
-    text-align: center;
-    padding: 120px 20% 60px;
+    
+    
   }
   .input {
     width: 100%;
@@ -19,20 +18,15 @@ body {
     line-height: 1.5;
     color: inherit;
     outline: none;
+    
+    
   }
   .input-season {
-    width: 100%;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid;
-    padding: 1em 0 .8em;
+    border: 4px solid #8842d5;
+    border-radius: 5px;
     text-align: center;
-    font-size: 18px;
-    font-family: inherit;
-    font-weight: 300;
-    line-height: 1.5;
-    color: inherit;
-    outline: none;
+    height: 27px;
+    margin: 20px 0 10px 68px;
   }
   .button {
     all: unset;
@@ -48,7 +42,11 @@ body {
     transition: all 300ms ease;
   }
   .button-season {
-    all: unset;
+    margin-left: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: 2px solid blue;
+    border-radius: 50px;
+    /* all: unset;
     margin-top: 2.4em;
     background: transparent;
     border: 2px solid blue;
@@ -58,7 +56,16 @@ body {
     display: inline-block;
     font-weight: 700;
     position: relative;
-    transition: all 300ms ease;
+    transition: all 300ms ease; */
+  }
+  .Serie-title h1 {
+    font-family: 'Dancing Script', cursive;
+	  font-size: 40px;
+    margin-bottom: 20px;
+    
+  }
+  .Serie-title h3 {
+	  margin-bottom: 20px;
   }
   .Serie-info {
     display: flex;
@@ -66,17 +73,15 @@ body {
     flex-wrap: wrap;
     margin: 0 -1%;
     justify-content: center;
-   
+    margin-top: 60px;
     
   }
   .episodes {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    
     border-radius: 5px;
-
-    height: 23rem;
-    width: 20rem;
+    height: 20rem;
+    width: 17rem;
     display: flex;
     flex-direction: column;
     margin: 9px;
@@ -90,12 +95,13 @@ body {
   }
   
   .episodes:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(203, 48, 48, 0.2);
   }
   
   .text {
     padding: 2px 16px;
     height: 90px;
+    margin-top: 13px;
   }
   .p {
     margin-top: -20px;
