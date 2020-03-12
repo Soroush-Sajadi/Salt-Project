@@ -17,7 +17,7 @@ app.get('/api/:serie/:season', async (req, res) => {
     if(/\s/.test(serie)) {
         serie = serie.replace(/\s/g, '%20');
     }
-    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&apikey=6a54815b`);
+    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&apikey=${process.env.KEY}`);
     const serieData = await fetchData.json();
     res.json(serieData);
 })
@@ -28,18 +28,17 @@ app.get('/api/pic/:serie/:season', async (req, res) => {
     if (/\s/.test(serie)) {
         serie = serie.replace(/\s/g, '%20');
     }
-    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&Episode=1&apikey=6a54815b`);
+    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&Episode=1&apikey=${process.env.KEY}`);
     const seriePic = await fetchData.json();
     res.json(seriePic);
 })
 
 app.get('/api/:movie', async (req, res) => {
     let movie = req.params.movie;
-    console.log(movie);
     if (/\s/.test(movie)) {
         movie = movie.replace(/\s/g, '%20');
     }
-    const fetchData = await fetch(`http://www.omdbapi.com/?s=${movie}&page=1&apikey=6a54815b`);
+    const fetchData = await fetch(`http://www.omdbapi.com/?s=${movie}&page=1&apikey=${process.env.KEY}`);
     const movieData = await fetchData.json();
     res.json(movieData);
 })
