@@ -7,18 +7,29 @@ require('dotenv').config();
 
 
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
 
-app.get('/api/:serie', async (req, res) => {
+app.get('/api/:serie/:season', async (req, res) => {
     let serie = req.params.serie;
+    const season = req.params.season;
     if(/\s/.test(serie)) {
-      serie = serie.replace(/\s/g, '%20');
+        serie = serie.replace(/\s/g, '%20');
     }
-    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season = 1}&apikey=6a54815b`);
+    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&apikey=6a54815b`);
     const serieData = await fetchData.json();
     res.json(serieData);
+})
+app.get('/api/pic/:serie/:season', async (req, res) => {
+    let serie = req.params.serie;
+    const season = req.params.season;
+    if (/\s/.test(serie)) {
+        serie = serie.replace(/\s/g, '%20');
+    }
+    const fetchData = await fetch(`http://www.omdbapi.com/?t=${serie}&Season=${season}&Episode=1&apikey=6a54815b`);
+    const seriePic = await fetchData.json();
+    res.json(seriePic);
 })
 
 const port = 3000
