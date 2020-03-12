@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 
 
+
 export default class serie extends Component {
     constructor(props) {
         super(props);
         this.state = {
           data: [],
-          input: null
+          input: null,
+          seasonInput: null
         };
         
         this.handleChange = this.handleChange.bind(this);
@@ -28,12 +30,12 @@ export default class serie extends Component {
     render() {
         return (  
             <div className="wrap">
-                <input className="input" type="text" onChange={ this.handleChange } />
+                <input className="input" type="text" placeholder="What is your favorite Serie" onChange={ this.handleChange } />
                 <input className="button"
                     type="button"
                     value="Search"
                     onClick={this.handleClick} />
-                {this.state.data.length !== 0 ? (<div className="weather-info"> 
+                {this.state.data.length !== 0 ? (<div className="Serie-info"> 
                     <h1>{`Name: ${this.state.data.Title}`}</h1>
                     <h2>{`Total Season: ${this.state.data.totalSeasons}`}</h2>
                     <h2>{`Season: ${this.state.data.Season}`}</h2>
